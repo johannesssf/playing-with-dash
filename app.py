@@ -7,11 +7,21 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
-app.layout = html.Div(children=[
-	html.H1(children='Hello Dash'),
-	html.Div(children='''
-		Dash: A web application framework for Python.
-	'''),
+colors = {
+	'background': '#111111',
+	'text': '#7FDBFF'
+}
+
+app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
+	html.H1(children='Hello Dash',
+		style={
+			'textAlign': 'center',
+			'color': colors['text']
+		}),
+	html.Div(children='Dash: A web application framework for Python.', style={
+		'textAlign': 'center',
+		'color': colors['text']
+	}),
 	dcc.Graph(
 		id="example-graph",
 		figure={
@@ -20,7 +30,12 @@ app.layout = html.Div(children=[
                 {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': u'Montréal'},
             ],
             'layout': {
-                'title': 'Dash Data Visualization'
+                # 'title': 'Dash Data Visualization'
+				'plot_bgcolor': colors['background'],
+				'paper_bgcolor': colors['background'],
+				'font': {
+					'color': colors['text']
+				}
             }
 		}
 	)
@@ -29,4 +44,4 @@ app.layout = html.Div(children=[
 if __name__ == '__main__':
 	app.run_server(debug=True)
 
-# Continue at: Making your first change
+# Continue at: Reusable Components
