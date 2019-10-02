@@ -43,5 +43,3 @@ app.layout = html.Div(style={'backgroundColor': colors['background']}, children=
 
 if __name__ == '__main__':
 	app.run_server(debug=True)
-
-# Continue at: Reusable Components
